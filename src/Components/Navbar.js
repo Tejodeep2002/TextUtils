@@ -1,14 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-export default function Navbar(props) {
+const Navbar=({title,mode,toggleMode})=> {
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+      className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}
     >
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          {props.title}
+          {title}
         </a>
         <button
           className="navbar-toggler"
@@ -24,12 +23,12 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <div
             className={`form-check form-switch text-${
-              props.mode === "light" ? "dark" : "light"
+              mode === "light" ? "dark" : "light"
             }`}
           >
             <input
               className="form-check-input"
-              onClick={props.toggleMode}
+              onClick={toggleMode}
               type="checkbox"
               role="switch"
               id="flexSwitchCheckDefault"
@@ -47,16 +46,4 @@ export default function Navbar(props) {
   );
 }
 
-Navbar.propTypes = {
-  title: PropTypes.string.isRequired,
-  aboutText: PropTypes.string,
-};
-
-Navbar.defaultProps = {
-  title: "Set title here",
-  abouttext: "About text here",
-};
-Navbar.defaultProps = {
-  title: "Set title here",
-  abouttext: "About ",
-};
+export default Navbar;
